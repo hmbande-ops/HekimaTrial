@@ -1,0 +1,240 @@
+/* --- 1. Global Reset & Variables --- */
+:root {
+    --primary-color: #004d99;      /* Deep Blue */
+    --secondary-color: #6cbf31;    /* Bright Green (Apply Button) */
+    --accent-color: #d9534f;       /* Red/Orange (Large Apply Button) */
+    --text-dark: #333;
+    --text-light: #fff;
+    --bg-light: #f4f4f4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--bg-light);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+/* --- 2. Header and Navigation --- */
+header {
+    background-color: var(--text-light);
+    border-bottom: 3px solid var(--bg-light);
+    padding: 10px 50px;
+}
+
+header h1 {
+    font-size: 1.2em; /* Smaller header above navigation */
+    margin: 0 0 5px 0;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+nav ul li a {
+    color: var(--text-dark);
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Style the last link as the green APPLY button */
+nav ul li:last-child a {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+nav ul li:last-child a:hover {
+    background-color: #4CAF50; /* Slightly darker green on hover */
+}
+
+/* --- 3. Hero/Banner Section (Core Mudasa Look) --- */
+.hero-section {
+    position: relative;
+    height: 500px; /* Standard banner height */
+    /* REPLACE with your actual image path or URL */
+    background-image: url('path/to/hekima_students_image.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center; /* Vertically center content */
+    justify-content: flex-start; /* Align content to the left */
+}
+
+/* Dark Overlay to improve text readability */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px 80px;
+    text-align: left;
+    max-width: 600px;
+    color: var(--text-light);
+}
+
+.hero-content h2 {
+    font-size: 3em;
+    margin: 0 0 5px 0;
+    color: var(--text-light);
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin: 0 0 25px 0;
+    font-weight: 300;
+}
+
+/* Large "APPLY ONLINE NOW" Button */
+.apply-btn-large {
+    background-color: var(--accent-color); /* Red color */
+    color: var(--text-light);
+    padding: 15px 30px;
+    border-radius: 4px;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.apply-btn-large:hover {
+    background-color: #c9302c; /* Slightly darker red on hover */
+}
+
+/* Slider Arrows (for the visual effect) */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--text-light);
+    z-index: 3;
+    transition: background 0.3s;
+}
+
+.slider-arrow:hover {
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--text-dark);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+/* --- 4. Content Sections --- */
+section {
+    padding: 50px 80px;
+    margin: 20px auto;
+    max-width: 1200px; /* Center content and give it breathing room */
+    background-color: var(--text-light);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+section h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+/* Section: Our School (#courses) - Card Layout */
+#courses ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    text-align: center;
+}
+
+#courses ul li {
+    flex: 1;
+    border: 1px solid var(--bg-light);
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-radius: 6px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+#courses ul li:hover {
+    transform: translateY(-5px);
+    background-color: #e5e5e5;
+}
+
+#courses ul li a {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--primary-color);
+    display: block;
+}
+
+/* Section: Contact Us (#contact) - Dark Background */
+#contact {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    max-width: none; /* Make this section full width */
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#contact h2, #contact h3 {
+    color: var(--secondary-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#contact p {
+    margin: 5px 0;
+}
+
+/* --- 5. Footer --- */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    font-size: 0.8em;
+}
